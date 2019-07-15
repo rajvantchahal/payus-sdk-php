@@ -1,0 +1,21 @@
+{
+    "name": "rajvant.chahal/payus-sdk-php",
+    "description": "Payus API Client",
+    "type": "library",
+    "keywords": [ "payus", "api" ],
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=5.3.3",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-0": {
+            "PayusAPI": "src/"
+        },
+        "files": [ "src/PayusAPI/helpers.php" ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
