@@ -14,7 +14,7 @@ class Factory
     /**
      * C O N S T R U C T O R ( ^_^)y
      *
-     * @param  array $config An array of configurations. You need at least the 'key'.
+     * @param  array $config An array of configurations. You need at least the 'access_token'.
      * @param  Client $client
      * @param array $clientOptions options to be send with each request
      * @param bool $wrapResponse wrap request response in own Response object

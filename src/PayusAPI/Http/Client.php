@@ -10,11 +10,8 @@ use PayusAPI\Exceptions\InvalidArgument;
 class Client
 {
     /** @var string */
-    public $key;
+    public $access_token;
     /** @var bool */
-
-    /** @var int */
-    public $userId;
 
     /** @var \GuzzleHttp\Client */
     public $client;
@@ -34,7 +31,7 @@ class Client
     protected $wrapResponse = true;
 
     /** @var string */
-    private $user_agent = "PayusAPI_PHP/1.0.0-rc.1 (https://github.com/webguru221/paytrust-php)";
+    private $user_agent = "PayusAPI_PHP/1.0.0-rc.1 (https://github.com/rajvantchahal/payus-sdk-php)";
 
     /**
      * Make it, baby.
@@ -49,13 +46,9 @@ class Client
         $this->clientOptions = $clientOptions;
         $this->wrapResponse = $wrapResponse;
 
-        $this->key = isset($config["key"]) ? $config["key"] : getenv("PayusAPI88_SECRET");
-        if (empty($this->key)) {
-            throw new InvalidArgument("You must provide a PayusAPI88 api key or token.");
-        }
-
-        if (isset($config['userId'])) {
-            $this->userId = $config['userId'];
+        $this->access_token = isset($config["access_token"]) ? $config["access_token"] : getenv("PayusAPI_ACCESS_TOKEN");
+        if (empty($this->access_token)) {
+            throw new InvalidArgument("You must provide a PayusAPI api access_token.");
         }
 
         $this->client = $client ?: new GuzzleClient();
@@ -65,7 +58,7 @@ class Client
      * Send the request...
      *
      * @param  string $method The HTTP request verb
-     * @param  string $endpoint The PayusAPI88 API endpoint
+     * @param  string $endpoint The PayusAPI API endpoint
      * @param  array $options An array of options to send with the request
      * @param  string $query_string A query string to send with the request
      * @return \PayusAPI\Http\Response|ResponseInterface
@@ -78,7 +71,7 @@ class Client
         $options = array_merge($this->clientOptions, $options);
         $options["headers"]["User-Agent"] = $this->user_agent;
         $options["headers"]["Content-type"] = 'application/json';
-        $options["auth"] = [$this->key, $this->key];
+        $options["headers"]["x-auth-token"] = $this->access_token;
 
         try {
             if ($this->wrapResponse === false) {
@@ -95,7 +88,7 @@ class Client
     /**
      * Generate the full endpoint url, including query string.
      *
-     * @param  string  $endpoint      The PayusAPI88 API endpoint.
+     * @param  string  $endpoint      The PayusAPI API endpoint.
      * @param  string  $query_string  The query string to send to the endpoint.
      * @return string
      */

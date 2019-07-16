@@ -149,7 +149,7 @@ class Response implements ResponseInterface, ArrayAccess
     /**
      * Retrieves all message header values.
      *
-     * The keys represent the header name as it will be sent over the wire, and
+     * The access_token represent the header name as it will be sent over the wire, and
      * each value is an array of strings associated with the header.
      *
      *     // Represent the headers as a string
@@ -168,7 +168,7 @@ class Response implements ResponseInterface, ArrayAccess
      * exact case in which headers were originally specified.
      *
      * @return array Returns an associative array of the message's headers. Each
-     *     key MUST be a header name, and each value MUST be an array of strings
+     *     access_token MUST be a header name, and each value MUST be an array of strings
      *     for that header.
      */
     function getHeaders()

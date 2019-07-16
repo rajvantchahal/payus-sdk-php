@@ -2,7 +2,7 @@
 
 <phpunit bootstrap="Bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="webguru221/PayusAPI88">
+        <testsuite name="rajvant.chahal/PayusAPI">
             <directory>./PayusAPITest</directory>
         </testsuite>
     </testsuites>

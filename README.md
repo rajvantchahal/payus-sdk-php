@@ -5,7 +5,7 @@
 **Composer:**
 
 ```bash
-composer require "webguru221/paytrust-php:dev-master"
+composer require "rajvant.chahal/payus-sdk-php:dev-master"
 ```
 
 ## Quickstart
@@ -16,19 +16,19 @@ All following examples assume this step.
 
 ```php
 
-// The only required value is the 'key'
+// The only required value is the 'access_token'
 
-$paytrust = new PayusAPI\Factory([
-  'key'      => 'demo',
-  'base_url' => 'https://api.paytrust88.com' // default
+$payusapi = new PayusAPI\Factory([
+  'access_token'      => 'demo',
+  'base_url' => 'https://payus.io:5000' // default
 ]);
 ```
 *Note:* You can prevent any error handling provided by this package by passing following options into client creation routine:
 
 ```php
-$paytrust = new PayusAPI\Factory([
-  'key'      => 'demo',
-  'base_url' => 'https://api.paytrust88.com' // default
+$payusapi = new PayusAPI\Factory([
+  'access_token'      => 'demo',
+  'base_url' => 'https://payus.io:5000' // default
 ],
 null,
 [
@@ -50,21 +50,18 @@ For possible options, see http://docs.guzzlephp.org/en/latest/request-options.ht
 require 'vendor/autoload.php';
 
 use PayusAPI\Http\Client;
-use PayusAPI\Resources\Contacts;
+use PayusAPI\Resources\Payus;
 
-$client = new Client(['key' => 'demo']);
+$client = new Client(['access_token' => 'demo']);
 
-$transaction = new Transaction($client);
+$payus = new Payus($client);
 
-$response = $transaction->start($params);
+$response = $payus->getAddressBalance($params);
 
 ```
 
 ## Status
 
-If you see something not planned, that you want, make an [issue](https://github.com/webguru221/paytrust-php/issues) and there's a good chance I will add it.
+If you see something not planned, that you want, make an [issue](https://github.com/rajvantchahal/payus-sdk-php/issues) and there's a good chance I will add it.
 
-- [x] Transaction:
-- [x] Payout:
-- [x] Banking:
-- [x] Report:
+- [x] getAddressBalance:
