@@ -24,7 +24,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
     /**
@@ -37,7 +37,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
     /**
@@ -50,7 +50,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
      /**
@@ -63,7 +63,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
      /**
@@ -76,7 +76,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
      /**
@@ -89,7 +89,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
      /**
@@ -102,7 +102,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
      /**
@@ -115,7 +115,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
      /**
@@ -128,7 +128,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
     /**
@@ -141,7 +141,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
     /**
@@ -154,7 +154,7 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
     /**
@@ -167,20 +167,20 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
     /**
      * @return \PayusAPI\Http\Response
      * Track payment
      */
-    function trackPayment($body)
+    function trackPayment($body = [])
     {
-        $endpoint = "https://payus.io:5000/api/track_payment/".$body->id;
+        $endpoint = "https://payus.io:5000/api/track_payment/";
 
-        $options['json'] = $body;
+        $queryString = build_query_string($body);
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('get', $endpoint, [], $queryString);
     }
 
     /**
@@ -193,20 +193,20 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 
     /**
      * @return \PayusAPI\Http\Response
      * Get payment button coin
      */
-    function getPaymentButtonCoin($body)
+    function getPaymentButtonCoin($body = [])
     {
-        $endpoint = "https://payus.io:5000/api/payment/".$body->merchant_id."/".$body->button_type;
+        $endpoint = "https://payus.io:5000/api/payment/";
 
-        $options['json'] = $body;
+        $queryString = build_query_string($body);
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('get', $endpoint, [], $queryString);
     }
 
     /**
@@ -219,6 +219,6 @@ class Payus extends Resource
 
         $options['json'] = $body;
 
-        return $this->client->request('get', $endpoint, $options);
+        return $this->client->request('post', $endpoint, $options);
     }
 }
