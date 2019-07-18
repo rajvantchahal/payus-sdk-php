@@ -5,7 +5,7 @@
 **Composer:**
 
 ```bash
-composer require "rajvant.chahal/payus-sdk-php:dev-master"
+composer require "@payus/payus-sdk-php:dev-master"
 ```
 
 ## Quickstart

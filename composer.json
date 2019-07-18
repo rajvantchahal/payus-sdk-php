@@ -1,5 +1,5 @@
 {
-    "name": "rajvant.chahal/payus-sdk-php",
+    "name": "@payus/payus-sdk-php",
     "description": "Payus API Client",
     "type": "library",
     "keywords": [ "payus", "api" ],
