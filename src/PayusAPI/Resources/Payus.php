@@ -46,7 +46,7 @@ class Payus extends Resource
      */
     function getDepositTransactions($body)
     {
-        $endpoint = "https://payus.io:5000/api/get_balance";
+        $endpoint = "https://payus.io:5000/api/get_deposit_transactions";
 
         $options['json'] = $body;
 
