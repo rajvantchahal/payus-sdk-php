@@ -69,8 +69,8 @@ If you see something not planned, that you want, make an [issue](https://github.
 | getAddressBalance  | coin, address, destination_tag(for XRP only)  | Get address balance |
 | paymentCryptoRest  | currency, return_url, coin_code, product_amount, invoice_id  | To create new customer transaction |
 | getBalance  | transaction_id  | Get balance |
-| getDepositTransactions  | coin_code  | Get deposite transactions |
-| withdraw  | withdraw_fees, apikey, coin_code, amount, withdraw_address  | Withdraw |
+| getDepositTransactions  | coin_code, limit(default: 10), page(default: 1), time or transaction | Get deposite transactions example: ({ "coin_code": "ETH", "limit": 10, "page": 1, "time": { "start": 1557324618, "end": 1557809939 }, "transaction": { "txhash": "transaction hash", "condition": "after" } }) |
+| withdraw  | apikey, coin_code, amount, withdraw_address  | Withdraw |
 | generateAddress  | coin_code | Generate address |
 | saveAddress  | coin_code, m_id, request_data, response_data, coin_address | Save address |
 | isValidAddress  | coin, address | Address valid check |
